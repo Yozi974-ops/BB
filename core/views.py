@@ -1,0 +1,28 @@
+from rest_framework import viewsets, permissions
+from .models import Request
+from .serializers import RequestSerializer
+from rest_framework import viewsets, permissions
+from .models import Message
+from .serializers import MessageSerializer
+
+class IsOwnerOrReadOnly(permissions.BasePermission):
+    def has_object_permission(self, request, view, obj):
+        return request.method in permissions.SAFE_METHODS or obj.creator == request.user
+
+class RequestViewSet(viewsets.ModelViewSet):
+    queryset = Request.objects.order_by("-created_at")
+    serializer_class = RequestSerializer
+    permission_classes = [permissions.IsAuthenticated, IsOwnerOrReadOnly]
+
+    def perform_create(self, serializer):
+        serializer.save(creator=self.request.user)
+
+class MessageViewSet(viewsets.ModelViewSet):
+    serializer_class = MessageSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        return Message.objects.filter(request_id=self.kwargs["request_pk"]).order_by("created_at")
+
+    def perform_create(self, serializer):
+        serializer.save(sender=self.request.user, request_id=self.kwargs["request_pk"])
