@@ -34,9 +34,9 @@ INSTALLED_APPS = [
     "channels",
 
     # Apps projet
-    "accounts",
-    "core",
-    "reviews",
+    "backend.accounts",
+    "backend.core",
+    "backend.reviews",
 ]
 
 # Middleware (corsheaders doit être haut)
