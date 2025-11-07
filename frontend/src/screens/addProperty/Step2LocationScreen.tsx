@@ -1,0 +1,115 @@
+import React, { useEffect } from "react";
+import { View, StyleSheet } from "react-native";
+import { useForm } from "react-hook-form";
+import { router } from "expo-router";
+import { ScreenContainer } from "@/src/components/layout/ScreenContainer";
+import { ProgressHeader } from "@/src/components/ui/ProgressHeader";
+import { Text } from "@/src/components/ui/Text";
+import { TextField } from "@/src/components/form/TextField";
+import { WizardFooter } from "@/src/components/ui/WizardFooter";
+import { Card } from "@/src/components/ui/Card";
+import { Button } from "@/src/components/ui/Button";
+import { colors, spacing } from "@/src/theme";
+import { useAddPropertyContext } from "@/src/context/AddPropertyContext";
+
+interface Step2Form {
+  address: string;
+}
+
+export const Step2LocationScreen: React.FC = () => {
+  const { property, updateLocation, totalSteps, goToStep, saveProgress } = useAddPropertyContext();
+
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    watch,
+    formState: { errors, isValid },
+  } = useForm<Step2Form>({
+    mode: "onChange",
+    defaultValues: {
+      address: property.location.address,
+    },
+  });
+
+  const address = watch("address");
+
+  useEffect(() => {
+    goToStep(2, { persist: false });
+    register("address", { required: "Adresse requise" });
+  }, [goToStep, register]);
+
+  const onSubmit = (data: Step2Form) => {
+    updateLocation({ address: data.address });
+    goToStep(3);
+    router.push("/add-property/step3");
+  };
+
+  const onUseCurrentLocation = () => {
+    // A connecter à un service de géolocalisation réel.
+    setValue("address", "Localisation actuelle détectée (simulation)", { shouldValidate: true });
+  };
+
+  const onSaveForLater = async () => {
+    updateLocation({ address: address ?? "" });
+    await saveProgress(2);
+    router.back();
+  };
+
+  return (
+    <ScreenContainer>
+      <ProgressHeader currentStep={2} totalSteps={totalSteps} label="Localisation du bien" />
+      <View style={styles.section}>
+        <Text variant="h3" weight="semibold">
+          Où se situe le bien ?
+        </Text>
+        <Text variant="body" color={colors.neutral[600]}>
+          Saisissez l’adresse complète pour activer les suggestions automatiques.
+        </Text>
+        <TextField
+          label="Adresse"
+          placeholder="Saisissez l’adresse…"
+          value={address}
+          onChangeText={(text) => setValue("address", text, { shouldValidate: true })}
+          autoCapitalize="words"
+          error={errors.address?.message}
+        />
+        <Button label="Utiliser ma position actuelle" variant="ghost" onPress={onUseCurrentLocation} />
+        <Card style={styles.mapPlaceholder}>
+          <Text variant="body" weight="medium">
+            Carte à venir
+          </Text>
+          <Text variant="small" color={colors.neutral[500]}>
+            Branchez ici votre composant de carte préféré (Mapbox, Google Maps…) pour afficher le point géographique.
+          </Text>
+        </Card>
+      </View>
+      <WizardFooter
+        onPrevious={() => {
+          updateLocation({ address: address ?? "" });
+          goToStep(1, { persist: true });
+          router.push("/add-property/step1");
+        }}
+        onNext={handleSubmit(onSubmit, () => {
+          if (!address) {
+            setValue("address", address ?? "", { shouldValidate: true });
+          }
+        })}
+        disableNext={!isValid || !address}
+        onSaveForLater={onSaveForLater}
+      />
+    </ScreenContainer>
+  );
+};
+
+const styles = StyleSheet.create({
+  section: {
+    gap: spacing.md,
+  },
+  mapPlaceholder: {
+    gap: spacing.sm,
+    backgroundColor: colors.surfaceMuted,
+  },
+});
+
+export default Step2LocationScreen;
