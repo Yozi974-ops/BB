@@ -3,7 +3,7 @@ import { View, StyleSheet } from "react-native";
 import { Controller, useForm } from "react-hook-form";
 import { router } from "expo-router";
 import { ScreenContainer } from "@/src/components/layout/ScreenContainer";
-import { ProgressHeader } from "@/src/components/ui/ProgressHeader";
+import { ProgressHeader }  from "@/src/components/ui/ProgressHeader";
 import { SelectField } from "@/src/components/form/SelectField";
 import { TextField } from "@/src/components/form/TextField";
 import { WizardFooter } from "@/src/components/ui/WizardFooter";

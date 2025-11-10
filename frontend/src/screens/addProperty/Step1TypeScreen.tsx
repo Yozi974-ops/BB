@@ -3,7 +3,7 @@ import { View, StyleSheet } from "react-native";
 import { useForm } from "react-hook-form";
 import { router } from "expo-router";
 import { ScreenContainer } from "@/src/components/layout/ScreenContainer";
-import { ProgressHeader } from "@/src/components/ui/ProgressHeader";
+import { ProgressHeader }  from "@/src/components/ui/ProgressHeader";
 import { SelectableCard } from "@/src/components/ui/SelectableCard";
 import { Text } from "@/src/components/ui/Text";
 import { WizardFooter } from "@/src/components/ui/WizardFooter";

@@ -1,5 +1,6 @@
 import React, { PropsWithChildren } from "react";
-import { SafeAreaView, ScrollView, StyleSheet, ViewProps } from "react-native";
+import { ScrollView, StyleSheet, ViewProps } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { colors, spacing } from "@/src/theme";
 
 type ScreenContainerProps = PropsWithChildren<

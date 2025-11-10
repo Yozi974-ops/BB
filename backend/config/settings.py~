@@ -11,11 +11,7 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 MEDIA_URL = "media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
-# URLs / WSGI / ASGI
-ROOT_URLCONF = "backend.config.urls"
-WSGI_APPLICATION = "backend.config.wsgi.application"
-# ASGI si utilisé :
-# ASGI_APPLICATION = "backend.config.asgi.application"
+
 
 # Applications
 INSTALLED_APPS = [
@@ -33,10 +29,10 @@ INSTALLED_APPS = [
     "drf_spectacular",
     "channels",
 
-    # Apps projet
-    "backend.accounts",
-    "backend.core",
-    "backend.reviews",
+    # Projet
+    "accounts",
+    "core",       # utile si tu gardes Request/Message
+    "reviews",    # optionnel
 ]
 
 # Middleware (corsheaders doit être haut)
@@ -93,8 +89,6 @@ TIME_ZONE = "Europe/Paris"
 USE_I18N = True
 USE_TZ = True
 
-# Fichiers statiques
-STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 

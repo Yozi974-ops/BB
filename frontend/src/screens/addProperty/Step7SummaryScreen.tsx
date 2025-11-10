@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { View, StyleSheet, Alert } from "react-native";
 import { router } from "expo-router";
 import { ScreenContainer } from "@/src/components/layout/ScreenContainer";
-import { ProgressHeader } from "@/src/components/ui/ProgressHeader";
+import  ProgressHeader  from "@/src/components/ui/ProgressHeader";
 import { Text } from "@/src/components/ui/Text";
 import { Card } from "@/src/components/ui/Card";
 import { Button } from "@/src/components/ui/Button";

@@ -5,22 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cadefc30-8b68-4779-bdf3-e68474d1e82d" name="Changes" comment="test">
-      <change afterPath="$PROJECT_DIR$/frontend/app/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/babel.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/screens/HomeScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/BB.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/BB.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/properties/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/properties/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/properties/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/properties/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/properties/serializers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/properties/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/properties/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/properties/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/services/api.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.vscode/settings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/(tabs)/_layout.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/(tabs)/explore.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/(tabs)/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/+not-found.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/_layout.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/accounts/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/accounts/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/scripts/reset-project.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/layout/ScreenContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/layout/ScreenContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ui/ProgressHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/ProgressHeader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/addProperty/Step1TypeScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/addProperty/Step1TypeScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/addProperty/Step2LocationScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/addProperty/Step2LocationScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/addProperty/Step3MainCharacteristicsScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/addProperty/Step3MainCharacteristicsScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/addProperty/Step4TechnicalDetailsScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/addProperty/Step4TechnicalDetailsScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/addProperty/Step5FinancialScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/addProperty/Step5FinancialScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/addProperty/Step6DocumentsScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/addProperty/Step6DocumentsScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/addProperty/Step7SummaryScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/addProperty/Step7SummaryScreen.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,19 +73,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "com.codeium.enabled": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Basti/Documents/PythonScript/BB/backend",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;com.codeium.enabled&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;ta-mere-en-slip&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Basti/Documents/PythonScript/BB&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Basti\Documents\PythonScript\BB\backend" />

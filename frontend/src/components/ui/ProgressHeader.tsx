@@ -1,52 +1,76 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
-import { colors, radii, spacing } from "@/src/theme";
-import { Text } from "./Text";
+import { View, Text, StyleSheet } from "react-native";
 
-interface ProgressHeaderProps {
+
+type ProgressHeaderProps = {
   currentStep: number;
   totalSteps: number;
-  label: string;
-}
+  label?: string; // compat ancien code
+  title?: string; // nouvelle prop possible
+};
 
-export const ProgressHeader: React.FC<ProgressHeaderProps> = ({ currentStep, totalSteps, label }) => {
-  const progress = Math.min(1, currentStep / totalSteps);
+const ProgressHeaderComponent: React.FC<ProgressHeaderProps> = ({
+  currentStep,
+  totalSteps,
+  label,
+  title,
+}) => {
+  const safeTotal = totalSteps > 0 ? totalSteps : 1;
+  const clampedStep = Math.min(Math.max(currentStep, 1), safeTotal);
+  const progressPercent = (clampedStep / safeTotal) * 100;
+  const headerTitle = title ?? label;
 
   return (
     <View style={styles.container}>
-      <View style={styles.labelRow}>
-        <Text variant="h3" weight="semibold">
-          Étape {currentStep} / {totalSteps}
-        </Text>
-        <Text variant="body" color={colors.neutral[600]}>
-          {label}
-        </Text>
+      {headerTitle && <Text style={styles.title}>{headerTitle}</Text>}
+
+      <View style={styles.barBackground}>
+        <View
+          style={[
+            styles.barFill,
+            { width: `${progressPercent}%` }, // string -> safe
+          ]}
+        />
       </View>
-      <View style={styles.progressBackground} accessibilityRole="progressbar" accessibilityValue={{ min: 0, max: 1, now: progress }}>
-        <View style={[styles.progressFill, { width: `${progress * 100}%` }]} />
-      </View>
+
+      <Text style={styles.stepText}>
+        Étape {clampedStep} / {safeTotal}
+      </Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    gap: spacing.sm,
-    marginBottom: spacing.lg,
+    paddingHorizontal: 16,
+    paddingTop: 12,
+    paddingBottom: 8,
+    backgroundColor: "#EFEBD8",
   },
-  labelRow: {
-    gap: spacing.xs,
+  title: {
+    fontSize: 18,
+    fontWeight: "600",
+    color: "#1831AD",
+    marginBottom: 8,
   },
-  progressBackground: {
-    height: 10,
-    borderRadius: radii.pill,
-    backgroundColor: colors.neutral[200],
+  barBackground: {
+    width: "100%",
+    height: 6,
+    borderRadius: 3,
+    backgroundColor: "#D3CCB5",
     overflow: "hidden",
   },
-  progressFill: {
+  barFill: {
     height: "100%",
-    backgroundColor: colors.primary,
+    borderRadius: 3,
+    backgroundColor: "#4B7F52",
+  },
+  stepText: {
+    marginTop: 4,
+    fontSize: 12,
+    color: "#1831AD",
   },
 });
 
-export default ProgressHeader;
+export const ProgressHeader = ProgressHeaderComponent;
+export default ProgressHeaderComponent;
