@@ -4,6 +4,9 @@ from .serializers import RequestSerializer
 from rest_framework import viewsets, permissions
 from .models import Message
 from .serializers import MessageSerializer
+from django.shortcuts import render
+def home(request):
+    return render(request, "home.html")
 
 class IsOwnerOrReadOnly(permissions.BasePermission):
     def has_object_permission(self, request, view, obj):
