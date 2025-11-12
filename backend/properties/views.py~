@@ -11,18 +11,13 @@ from .serializers import PropertySerializer, PropertyDocumentSerializer
 
 class PropertyViewSet(viewsets.ModelViewSet):
     serializer_class = PropertySerializer
-    permission_classes = [permissions.AllowAny]  # 👈 pour l’instant, le temps des tests
+    permission_classes = [permissions.AllowAny]
 
     def get_queryset(self):
-        # Si plus tard tu veux filtrer par owner connecté :
-        # if self.request.user.is_authenticated:
-        #     return Property.objects.filter(owner=self.request.user).order_by("-created_at")
-        # return Property.objects.none()
-        return Property.objects.all().order_by("-created_at")
+        return Property.objects.filter(owner=self.request.user).order_by("-created_at")
 
     def perform_create(self, serializer):
-        serializer.save()  # 👈 on ne force plus owner ici
-
+        serializer.save()  # owner injecté dans serializer via context
 
     @action(detail=True, methods=["post"], url_path="documents")
     def upload_document(self, request, pk=None):

@@ -245,39 +245,29 @@ export const AddPropertyProvider: React.FC<React.PropsWithChildren> = ({ childre
     setHasDraft(false);
   }, []);
 
-  const saveProperty = useCallback(async (): Promise<void> => {
-    const draft = propertyRef.current;
+  const saveProperty = async (): Promise<void> => {
+  // ici, state.property / property correspond à ton PropertyDraft global
+  const draft = state.property || property; // adapte selon ton implementation actuelle
 
-    // 1) Création du bien côté backend
-    const res = await savePropertyService(draft);
+  // 1) Création du bien
+  const res = await savePropertyApi(draft);
 
-    // 2) Upload des documents si tu as des URIs locales
-    if (draft.documents && draft.documents.length > 0) {
-      for (const doc of draft.documents) {
-        // adapte si ta structure document est différente
-        if ((doc as any).uri) {
-          try {
-            await uploadPropertyDocument(res.id, (doc as any).uri, doc.name || "document.pdf");
-          } catch (e) {
-            console.log("Erreur upload doc", doc.name, e);
-          }
+  // 2) Upload des documents (si tu as déjà des URIs côté front)
+  if (draft.documents && draft.documents.length > 0) {
+    for (const doc of draft.documents) {
+      if (doc.uri) {
+        try {
+          await uploadPropertyDocument(res.id, doc.uri, doc.name || "document.pdf");
+        } catch (e) {
+          console.log("Erreur upload doc", doc.name, e);
         }
       }
     }
+  }
 
-    // 3) Nettoyer le brouillon après succès (optionnel mais logique)
-    try {
-      await clearDraftService();
-    } catch (e) {
-      console.log("Erreur clearDraft après save", e);
-    }
-
-    const reset = createInitialProperty();
-    setProperty(reset);
-    propertyRef.current = reset;
-    setCurrentStep(1);
-    setHasDraft(false);
-  }, []);
+  // 3) (Optionnel) reset du state après création
+  // reset();
+};
 
 
   const value = useMemo<AddPropertyContextValue>(

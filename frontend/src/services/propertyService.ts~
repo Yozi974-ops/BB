@@ -137,8 +137,3 @@ export const uploadPropertyDocument = async (
     throw error;
   }
 };
-
-export const fetchProperties = async () => {
-  const response = await api.get("/properties/");
-  return response.data;
-};

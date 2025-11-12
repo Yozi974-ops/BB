@@ -19,6 +19,8 @@ class Property(models.Model):
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         related_name="properties",
+        null=True,
+        blank=True,
     )
 
     title = models.CharField(max_length=255)
@@ -77,6 +79,8 @@ class PropertyDocument(models.Model):
         Property,
         related_name="documents",
         on_delete=models.CASCADE,
+        null=True,
+        blank=True,
     )
     file = models.FileField(upload_to="properties/documents/")
     name = models.CharField(max_length=255)

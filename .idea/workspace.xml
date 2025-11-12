@@ -5,32 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cadefc30-8b68-4779-bdf3-e68474d1e82d" name="Changes" comment="test">
-      <change afterPath="$PROJECT_DIR$/backend/properties/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/properties/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/properties/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/properties/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/properties/serializers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/properties/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/properties/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/properties/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/services/api.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/app/profile/about.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/app/profile/guide.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/app/profile/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/app/profile/legal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/app/profile/listings.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/app/profile/personal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/app/profile/properties.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/app/profile/services.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/app/profile/settings.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/layout/Header.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/navigation/BackButton.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/navigation/ProfileButton.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/accounts/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/accounts/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/core/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/properties/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/properties/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/properties/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/properties/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/properties/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/properties/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/reviews/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/reviews/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/layout/ScreenContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/layout/ScreenContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/ui/ProgressHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/ProgressHeader.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/addProperty/Step1TypeScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/addProperty/Step1TypeScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/addProperty/Step2LocationScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/addProperty/Step2LocationScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/addProperty/Step3MainCharacteristicsScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/addProperty/Step3MainCharacteristicsScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/addProperty/Step4TechnicalDetailsScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/addProperty/Step4TechnicalDetailsScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/addProperty/Step5FinancialScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/addProperty/Step5FinancialScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/addProperty/Step6DocumentsScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/addProperty/Step6DocumentsScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/context/AddPropertyContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/context/AddPropertyContext.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/screens/addProperty/Step7SummaryScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/addProperty/Step7SummaryScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/services/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/services/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/services/propertyService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/services/propertyService.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,11 +83,12 @@
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;ta-mere-en-slip&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Basti/Documents/PythonScript/BB&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Basti\Documents\PythonScript\BB\frontend\src\components" />
       <recent name="C:\Users\Basti\Documents\PythonScript\BB\backend" />
     </key>
   </component>

@@ -1,9 +1,83 @@
-import { View, Text } from "react-native";
+import React, { useMemo } from "react";
+import { View, StyleSheet, ActivityIndicator } from "react-native";
+import { router } from "expo-router";
+import { ScreenContainer } from "@/src/components/layout/ScreenContainer";
+import { Card } from "@/src/components/ui/Card";
+import { Text } from "@/src/components/ui/Text";
+import { Button } from "@/src/components/ui/Button";
+import { colors, spacing } from "@/src/theme";
+import { useAddPropertyContext } from "@/src/context/AddPropertyContext";
+import ScreenContainer from "@/src/components/layout/ScreenContainer";
 
-export default function HomeScreen() {
-  return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Écran d'accueil Immio</Text>
-    </View>
+export const HomeScreen: React.FC = () => {
+  const { hasDraft, currentStep, isRestoring } = useAddPropertyContext();
+
+  const subtitle = useMemo(
+    () =>
+      "Centralisez vos informations, documents et performances locatives dans un espace unique, sécuritaire et serein.",
+    [],
   );
-}
+
+  if (isRestoring) {
+    return (
+      <ScreenContainer scrollable={false}>
+        <View style={styles.loaderContainer}>
+          <ActivityIndicator color={colors.primary} size="large" />
+          <Text variant="body" color={colors.neutral[600]} style={styles.loaderText}>
+            Chargement de vos données…
+          </Text>
+        </View>
+      </ScreenContainer>
+    );
+  }
+
+  return (
+    <ScreenContainer scrollable={false}>
+      <Card style={styles.heroCard}>
+        <Text variant="h1" weight="bold">
+          Suivez vos biens immobiliers
+        </Text>
+        <Text variant="body" color={colors.neutral[600]}>
+          {subtitle}
+        </Text>
+        <View style={styles.actions}>
+          <Button
+            label="Ajouter un bien"
+            onPress={() => router.push("/add-property/step1")}
+            accessibilityHint="Commencer le parcours d’ajout de bien"
+          />
+          {hasDraft ? (
+            <Button
+              label="Reprendre mon bien"
+              variant="ghost"
+              onPress={() => router.push(`/add-property/step${currentStep}`)}
+              accessibilityHint="Reprend là où vous vous êtes arrêté"
+            />
+          ) : null}
+        </View>
+      </Card>
+    </ScreenContainer>
+  );
+};
+
+const styles = StyleSheet.create({
+  heroCard: {
+    marginTop: spacing.xl,
+    gap: spacing.md,
+  },
+  actions: {
+    gap: spacing.sm,
+    marginTop: spacing.lg,
+  },
+  loaderContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    gap: spacing.md,
+  },
+  loaderText: {
+    textAlign: "center",
+  },
+});
+
+export default HomeScreen;

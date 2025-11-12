@@ -49,7 +49,4 @@ class PropertySerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         # le owner est injecté dans la vue
         owner = self.context["request"].user
-        if owner and owner.is_authenticated:
-            validated_data["owner"] = owner
-
-        return Property.objects.create(**validated_data)
+        return Property.objects.create(owner=owner, **validated_data)

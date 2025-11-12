@@ -19,7 +19,7 @@ class RequestViewSet(viewsets.ModelViewSet):
 
 class MessageViewSet(viewsets.ModelViewSet):
     serializer_class = MessageSerializer
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [permission_classes]
 
     def get_queryset(self):
         return Message.objects.filter(request_id=self.kwargs["request_pk"]).order_by("created_at")

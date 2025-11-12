@@ -1,15 +1,19 @@
 import React from "react";
-import { ScrollView, StyleSheet, ViewProps, ViewStyle, StyleProp } from "react-native";
+import {
+  ScrollView,
+  StyleSheet,
+  ViewProps,
+  ViewStyle,
+  StyleProp,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { colors, spacing } from "@/src/theme";
-import Header from "@/src/components/layout/Header";
+import ProfileButton from "@/src/components/navigation/ProfileButton";
 
 type ScreenContainerProps = ViewProps & {
   children: React.ReactNode;
   scrollable?: boolean;
   showProfileButton?: boolean;
-  showHeader?: boolean;
-  title?: string;
   style?: StyleProp<ViewStyle>;
 };
 
@@ -18,14 +22,12 @@ export const ScreenContainer: React.FC<ScreenContainerProps> = ({
   style,
   scrollable = true,
   showProfileButton = true,
-  showHeader = true,
-  title,
   ...rest
 }) => {
   if (scrollable) {
     return (
       <SafeAreaView style={[styles.safeArea, style]} {...rest}>
-        {showHeader && <Header title={title} showProfileButton={showProfileButton} />}
+        {showProfileButton && <ProfileButton />}
         <ScrollView
           style={styles.scrollView}
           contentContainerStyle={styles.scrollContent}
@@ -39,7 +41,7 @@ export const ScreenContainer: React.FC<ScreenContainerProps> = ({
 
   return (
     <SafeAreaView style={[styles.safeArea, style]} {...rest}>
-      {showHeader && <Header title={title} showProfileButton={showProfileButton} />}
+      {showProfileButton && <ProfileButton />}
       {children}
     </SafeAreaView>
   );
@@ -49,12 +51,13 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     backgroundColor: colors.background,
+    paddingHorizontal: spacing.lg,
+    paddingTop: spacing.xl,
   },
   scrollView: {
     flex: 1,
   },
   scrollContent: {
-    paddingHorizontal: spacing.lg,
     paddingBottom: spacing.xxl,
     gap: spacing.lg,
   },
