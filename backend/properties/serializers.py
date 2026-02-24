@@ -1,0 +1,55 @@
+from rest_framework import serializers
+from .models import Property, PropertyDocument
+
+class PropertyDocumentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PropertyDocument
+        fields = ["id", "name", "file", "status", "extracted_data", "uploaded_at"]
+        read_only_fields = ["id", "status", "extracted_data", "uploaded_at"]
+
+
+class PropertySerializer(serializers.ModelSerializer):
+    documents = PropertyDocumentSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Property
+        fields = [
+            "id",
+            "title",
+            "type",
+            "usage",
+            "address",
+            "latitude",
+            "longitude",
+            "living_area",
+            "rooms",
+            "bedrooms",
+            "construction_year",
+            "occupancy_status",
+            "dpe",
+            "ges",
+            "is_co_owned",
+            "condo_fees",
+            "overall_condition",
+            "purchase_price",
+            "monthly_rent",
+            "monthly_charges",
+            "property_tax",
+            "loan_amount",
+            "loan_rate",
+            "loan_duration_months",
+            "gross_yield",
+            "net_yield",
+            "created_at",
+            "updated_at",
+            "documents",
+        ]
+        read_only_fields = ["id", "created_at", "updated_at", "documents", "owner"]
+
+    def create(self, validated_data):
+        # le owner est injecté dans la vue
+        owner = self.context["request"].user
+        if owner and owner.is_authenticated:
+            validated_data["owner"] = owner
+
+        return Property.objects.create(**validated_data)
